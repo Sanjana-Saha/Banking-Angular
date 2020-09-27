@@ -1,0 +1,220 @@
+
+
+    <h2 style="text-align:center">User Details</h2>
+    <div class="container" style="margin:auto;">
+        <div class="row" style="float: right;">
+        
+            <input type="submit" value="Logout">
+        
+          </div>
+    <div class="row">
+        <div class="col-25">
+          <label for="Candidate">Applied Candidate Id's</label>
+        </div>
+        <div class="col-75">
+            <select (change)="changeId(rid)" #rid>
+                <option [value]="0">Please select for Account Details</option>
+                <option *ngFor="let A of Accounts" [value]="A">UserId--{{A}}</option>
+                </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+<div *ngIf="val!=0">
+    <div class="container" style="margin:auto;">
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">First Name :</label>
+          </div>
+          <div class="col-75">
+           <input type="text"  [value]="AccountDetails.FirstName" disabled placeholder="Your name..">
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="mname">Middle Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text"   [value]="AccountDetails.MiddleName" disabled  placeholder="Your Middle name..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="lname">Last Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text"  name="lastname" [value]="AccountDetails.LastName" disabled  placeholder="Your last name..">
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="faname">Father Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text"  name="Fathername" [value]="AccountDetails.FatherName" disabled placeholder="Your Father name..">
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="mobile">Mobile Number</label>
+          </div>
+          <div class="col-75">
+            <input type="text"  name="mobilenumber" [value]="AccountDetails.MobileNumber" disabled placeholder="Your Mobile number..">
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="email">Email</label>
+          </div>
+          <div class="col-75">
+            <input type="text"  name="email" [value]="AccountDetails.EmailId" disabled placeholder="Your Email address..">
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="aadhar">Aadhar card Number</label>
+          </div>
+          <div class="col-75">
+            <input type="text"  name="Aadharcard" [value]="AccountDetails.AadharNumber" disabled placeholder="Your Aadhar Number..">
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="dob">Date of Birth</label>
+          </div>
+          <div class="col-75">
+            <input type="text"  name="Dateofbirth" [value]="AccountDetails.DateOfBirth" disabled placeholder="Your DOB..">
+          </div>
+        </div>
+       <div class="row">
+          <div class="col-25">
+            <label for="Residential">Residential Address1</label>
+          </div>
+          <div class="col-75">
+            <textarea  name="Residential" [value]="AccountDetails.ResAddress1" disabled placeholder="Your Residential Address.."></textarea>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+              <label for="Residential">Residential Address2</label>
+            </div>
+            <div class="col-75">
+              <textarea  name="Residential" [value]="AccountDetails.ResAddress2" disabled placeholder="Your Residential Address.."></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Residential Landmark</label>
+            </div>
+            <div class="col-75">
+              <textarea name="Residential" [value]="AccountDetails.ResLandmark" disabled placeholder="Your Residential Address.."></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Residential city</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="Residential" [value]="AccountDetails.ResCity" disabled placeholder="Your Residential Address..">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Residential state</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="Residential" [value]="AccountDetails.ResState" disabled placeholder="Your Residential Address..">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Residential Pincode</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="Residential" [value]="AccountDetails.ResPincode" disabled placeholder="Your Residential Address..">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Permanent Address1</label>
+            </div>
+            <div class="col-75">
+              <textarea name="Residential" [value]="AccountDetails.PerAddress1" disabled placeholder="Your Residential Address.."></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Permanent Address2</label>
+            </div>
+            <div class="col-75">
+              <textarea name="Residential" [value]="AccountDetails.PerAddress2" disabled placeholder="Your Residential Address.."></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Permanent Landmark</label>
+            </div>
+            <div class="col-75">
+              <textarea name="Residential" [value]="AccountDetails.PerLandmark" disabled placeholder="Your Residential Address.."></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Permanent City</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="Residential" [value]="AccountDetails.PerCity" disabled placeholder="Your Residential Address..">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Permanent State</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="Residential" [value]="AccountDetails.PerState" disabled placeholder="Your Residential Address..">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="Residential">Permanent Pincode</label>
+            </div>
+            <div class="col-75">
+              <input type="text"  name="Residential" [value]="AccountDetails.PerPincode" disabled placeholder="Your Residential Address..">
+            </div>
+          </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="occupation">Ocupation type</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="occupation" [value]="AccountDetails.OccupationType" disabled placeholder="Your Occupation Type..">
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="source">Source of Income</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="source" [value]="AccountDetails.SourceIncome" disabled placeholder="Your Source of Income..">
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="Annual">Gross Annual Income</label>
+          </div>
+          <div class="col-75">
+            <input type="text"  name="Annual" [value]="AccountDetails.GrossIncome" disabled placeholder="Your Annual Income..">
+          </div>
+        </div>
+        
+        <br>
+        <div class="row"  style="float:left;">
+        
+          <input type="submit" (click)="changeindatabase(0)" value="Disapprove">
+      
+        </div>
+      <div class="row" style="float: right;">
+        
+          <input type="submit" (click)="changeindatabase(1)" value="Approve">
+      
+        </div></div>
