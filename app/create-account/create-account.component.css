@@ -1,0 +1,31 @@
+#heads1{
+    width: 500px;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    border-style: solid;
+}
+#heads2{
+    font-weight: bold;
+    text-align: left;
+    margin: auto;
+    border-style: solid;
+}
+#resid{
+    font-weight: bold;
+}
+#perid{
+    font-weight: bold;
+}
+#mandatory{
+    color: red;
+}
+#occdet{
+        font-weight: bold;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+  }
