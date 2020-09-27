@@ -1,0 +1,19 @@
+
+<body>
+  <h2 style="text-align:center">Check Your Account Status</h2>
+  <div class="val">
+    <input type="text" class="form-control" placeholder="Enter your userid" #mvalue>
+    <button type="submit" class="btn btn-success" style="float: right;" (click)="GetStatus(mvalue)">Search</button>
+   </div>
+    <br><br><br><br>
+   
+    <div class="val1" *ngIf="count!=0">{{message.message}}</div>
+
+
+</body>
+
+    
+    
+    
+    
+    

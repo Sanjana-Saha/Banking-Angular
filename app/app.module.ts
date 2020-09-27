@@ -2,27 +2,72 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {LoginService} from './services/LoginService';
-//import { SetpasswordComponent } from './setpassword/setpassword.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component'
+
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import {SearchService} from './services/SearchService';
+import {AdminDecisionService} from './services/AdminDecisionService';
+import { FormsModule } from '@angular/forms';
+import { SearchComponentComponent } from './search-component/search-component.component';
+import { AdminDecisionComponent } from './admin-decision/admin-decision.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { CreateAccountService } from './services/createAccountService';
+import {AdminLoginService} from './services/AdminLoginService';
+import { AccountCreatedComponent } from './account-created/account-created.component';
+import {Routes,RouterModule} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { CreateAccount } from './models/createAccount';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+
+var myRoutes:Routes=[
+  {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:'home',component:HomeComponent},
+  {path:'created',component:AccountCreatedComponent},
+  {path:'open',component:CreateAccountComponent}
+];
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    SearchComponentComponent,
+    AdminDecisionComponent,
+    CreateAccountComponent,
+    AccountCreatedComponent,
+    HomeComponent,
+    HeaderComponent,
+    AdminLoginComponent,
+   LoginComponent,
     ChangepasswordComponent
+
   ],
+  providers: [LoginService,SearchService,AdminDecisionService,CreateAccountService,AdminLoginService
+], 
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+ RouterModule.forRoot(myRoutes)
   ],
-  providers: [LoginService],
+
+
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

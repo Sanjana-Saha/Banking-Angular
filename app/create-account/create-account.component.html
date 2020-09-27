@@ -1,0 +1,222 @@
+
+<div id="heads1" class="alert alert-info">
+    <h3>Open A Savings Account</h3>
+</div>
+<br>
+<br>
+<div id="heads2" class="alert alert-dark">
+    <h6>Personal Details</h6>
+</div>
+<br>
+<br>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()"> 
+    <label class="col-sm-2 col-form-label">Title<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+        <select name="title" class="form-control" formControlName="titles">
+            <option value="ms">Ms.</option>
+            <option value="mr">Mr.</option>
+            <option value="mrs">Mrs.</option>
+        </select>
+        <span class="alert alert-danger" *ngIf="titles.touched && titles.invalid">
+            <span *ngIf="titles?.errors?.required">Please enter your title</span>
+        </span>
+    </div>
+    
+    <br>
+    
+        <label class="col-sm-2 col-form-label">First Name<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Please enter your first name" formControlName="fname">
+        <span class="alert alert-danger" *ngIf="fname.touched && fname.invalid">
+            <span *ngIf="fname?.errors?.required">Please enter your first name</span>
+        </span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">Middle Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="mname">
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">Last Name<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control"  placeholder="Please enter your Last name" formControlName="lname">
+        <span class="alert alert-danger" *ngIf="lname.touched && lname.invalid">
+            <span *ngIf="lname?.errors?.required">Please enter your last name</span>
+        </span>
+    </div>
+
+    <br>
+    <label class="col-sm-2 col-form-label">Father's Name<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Please enter your Father's Name" formControlName="fthrname">
+        <span class="alert alert-danger" *ngIf="fthrname.touched && fthrname.invalid">
+        <span *ngIf="fthrname?.errors?.required">Please enter your father's name</span>
+        </span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">Mobile Number<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+        <input type="number" class="form-control" placeholder="Enter your 10 digit mobile number" formControlName="mob">
+        <span class="alert alert-danger" *ngIf="mob.touched && mob.invalid">
+             <span *ngIf="mob?.errors?.required">Please enter your Mobile number</span>
+              <span *ngIf="mob?.errors?.pattern">Doesn't match the pattern</span>
+        </span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">Email ID</label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" formControlName="email">
+    </div>
+
+    <br>
+    <label class="col-sm-2 col-form-label">Aadhar Card Number<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="number" class="form-control" placeholder="Aadhar number should be of 12 digits" maxlength="12" formControlName="adhrno">
+    <span *ngIf="adhrno?.errors?.required">Aadhar Number is required</span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">Date Of Birth<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="date" class="form-control" placeholder="Please enter your Date of Birth" formControlName="dob">
+    <span *ngIf="dob?.errors?.required">Please enter your Date of Birth</span>
+    </div>
+    
+    <br>
+    <p id="resid">Residential Address</p>
+    <br>
+    <label class="col-sm-2 col-form-label">a) Address Line 1<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" placeholder="Please enter your address" formControlName="raddr1">
+    <span *ngIf="raddr1?.errors?.required">Please enter address</span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">b) Address Line 2<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control"  placeholder="Please enter your address" formControlName="raddr2">
+    <span *ngIf="raddr2?.errors?.required">Please enter address</span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">c) Landmark</label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" formControlName="rlm">
+    </div>
+
+    <br>
+    <label class="col-sm-2 col-form-label">d) State<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" placeholder="Please enter your state name" formControlName="rstate">
+    <span *ngIf="rstate?.errors?.required">State is required</span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">e) City<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" placeholder="Please enter your city name" formControlName="rcity">
+    <span *ngIf="rcity?.errors?.required">City is required</span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">f) Pincode<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="number" class="form-control" placeholder="Please enter your Pincode" formControlName="rpin">
+    <span *ngIf="rpin?.errors?.required">Please enter PinCode</span>
+    </div>
+
+    <br>
+    <p id="resid">Permanent Address</p>
+    <br>
+    <label class="col-sm-2 col-form-label">a) Address Line 1<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" placeholder="Please enter your address" formControlName="paddr1">
+    <span *ngIf="paddr1?.errors?.required">Please enter address</span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">b) Address Line 2<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control"  placeholder="Please enter your address" formControlName="paddr2">
+    <span *ngIf="paddr2?.errors?.required">Please enter address</span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">c) Landmark</label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" formControlName="plm">
+    </div>
+
+    <br>
+    <label class="col-sm-2 col-form-label">d) State<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" placeholder="Please enter your state name" formControlName="pstate">
+    <span *ngIf="pstate?.errors?.required">State is required</span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">e) City<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" placeholder="Please enter your city name" formControlName="pcity">
+    <span *ngIf="pcity?.errors?.required">Please enter valid email</span>
+    </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">f) Pincode<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <input type="number" class="form-control" placeholder="Please enter your Pincode" formControlName="ppin">
+    <span *ngIf="ppin?.errors?.required">Please enter PinCode</span>
+    </div>
+    
+    <br>
+    <p id="occdet">Occupation Details</p>
+    <br>
+    <label class="col-sm-2 col-form-label">a)Occupation Type<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+    <select name="occupation" class="form-control" formControlName="occ">
+      <option value="Salaried" selected>Salaried</option>
+      <option value="se">Self Employed</option>
+      <option value="bus">Business</option>
+      <option value="ret">Retired</option>
+      <option value="stu">Student</option>
+  </select>
+  <span *ngIf="occ?.errors?.required">Please enter your occupation</span>
+  </div>
+ 
+  <br>
+  <label class="col-sm-2 col-form-label">b) Source of Income<span id="mandatory">*</span></label>
+  <div class="col-sm-10">
+  <input type="text" class="form-control" formControlName="source">
+  <span *ngIf="source?.errors?.required">Please enter your source of income</span>
+  </div>
+    
+    <br>
+    <label class="col-sm-2 col-form-label">c) Gross Annual Income<span id="mandatory">*</span></label>
+    <div class="col-sm-10">
+  <input type="text" class="form-control" formControlName="gross">
+  <span *ngIf="gross?.errors?.required">Please enter your total income</span>
+  </div>
+    
+    <br>
+    Do You want to a Debit Card?
+    <input type="checkbox" name="debit" id="debit" (click)="optDebitCard()"/>Yes
+    <br>
+    <br>
+   
+    <br>
+    <input type="checkbox" name="agree" formControlName="agree" (click)="agreed()"/> I Agree
+    <p class="alert alert-danger">
+      <span class="alert alert-danger">Please click "I Agree" to accept our Terms and Conditions</span>
+    </p>
+        <div class="center">
+            <button type="submit" class="btn btn-primary" style="text-align: center;">Submit</button>
+        </div>
+</form>
+
+
+    
+ 

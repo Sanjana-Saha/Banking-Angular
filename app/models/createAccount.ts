@@ -1,0 +1,37 @@
+export class CreateAccount{
+     Title:string;
+     FirstName:string;
+     MiddleName:string;
+     LastName:string; 
+     FatherName:string;
+     MobileNumber:number;
+     EmailId:string;
+     AadharNumber:number; 
+     DateOfBirth:Date;
+     ResAddress1:string; 
+     ResAddress2:string;
+     ResLandmark:string;
+     ResCity:string;
+     ResState:string;
+     ResPincode:number;
+     PerAddress1:string;
+     PerAddress2:string;
+     PerLandmark:string;
+     PerCity:string;
+     PerState:string;
+     PerPincode:number; 
+     OccupationType:string;
+     SourceIncome:string;
+     GrossIncome:number; 
+     DebitcardOpted:boolean;
+     AccountStatus:boolean;
+     AccountRejected:boolean;
+     tnc:boolean;
+     
+     constructor(){
+         this.tnc=false;
+         this.DebitcardOpted=false;
+         this.AccountStatus=false;
+         this.AccountRejected=false;
+     }
+}
