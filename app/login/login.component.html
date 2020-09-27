@@ -1,0 +1,35 @@
+
+<body>
+    <div class="card bg-light text-dark">
+        <h1>Login Page</h1>
+        <form [formGroup]="myForm">
+            <label>Username</label>
+            <input class="form-control" type="text"  formControlName="username">
+            <span class="alert alert-danger" *ngIf="username.touched && username.invalid">
+                <span class="alert alert-danger" *ngIf="username.errors.required">Name field is required!</span>
+                <span class="alert alert-danger" *ngIf="username.errors.minlength">Username should be min 3 chars</span>
+            </span>
+            <label>Password</label>
+            <input class="form-control" type="password" formControlName="password">
+            <span class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                <span class="alert alert-danger" *ngIf="password.errors.required">Password field is required!</span>
+            </span>
+            <br/>
+         
+            <button type="button" class="btn btn-primary btn-lg btn-block" [disabled]="myForm.invalid" (click)="checkPassword()">Login</button>
+            <p><a href="Registerlink">First Time User? Register</a></p>
+            <p><a href="forgotpasswordlink">Forgot Password?</a></p>
+            <p class="text-danger">{{userwlcm|json}}</p>
+        </form>
+        
+    </div>
+    <!-- <p *ngIf="message" class="text-danger">
+        Login succesfull
+        username="login.UserId"
+password="login.UserPass"
+    </p> -->
+ 
+    <!-- <p class="text-danger">{{userwlcm|json}}</p> -->
+    </body>
+
+   

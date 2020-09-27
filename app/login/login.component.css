@@ -1,0 +1,15 @@
+div{
+    height: 500px;
+    width:500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-top: 40px;
+}
+h1{
+    text-align: center;
+   
+    height: 60px;
+}
