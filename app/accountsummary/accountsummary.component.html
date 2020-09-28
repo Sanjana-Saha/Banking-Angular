@@ -1,0 +1,16 @@
+<p>accountsummary works!</p>
+<button type="button" class="btn btn-primary btn-lg btn-block"  (click)="getAccountSummary()">Account Summary</button>
+
+<!-- {{message|json}} -->
+<!-- {{message.ToAccountNumber|json}} -->
+<div class="alert alert-danger" *ngFor="let m of message">
+   Transferred to:  {{m.ToAccountNumber}}
+    <br/>
+    Amount Transferred: {{m.AmountTransferred}}
+    <br/>
+    Transfer Date:       {{m.TransactionDate}}
+    <br/>
+    Your Account Type: {{m.TransactionType}}
+    <br/>
+    Transaction Status: {{m.TransactionStatus}}
+</div>

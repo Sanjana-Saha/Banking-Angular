@@ -7,4 +7,5 @@ export class User{
     LockAccount:boolean;
     logincount:number=0;
     NewPass:string;
+    
 }

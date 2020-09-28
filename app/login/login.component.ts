@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ChangeStatus } from '../models/changestatus';
 import { User } from '../models/user';
 import { LoginService } from '../services/LoginService';
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
  changeStatus:ChangeStatus;
 
  userwlcm:string;
-  constructor(private loginService:LoginService) { 
+  constructor(private loginService:LoginService,private router:Router) { 
     // this.changeStatus=new ChangeStatus();
     this.user=new User();
     this.myForm=new FormGroup({
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   checkPassword(){
   //  this.changeStatus.logincount++;
- // this.user.logincount++;
+  this.user.logincount++;
     this.user.UserId=this.username.value;
     this.user.UserPass=this.password.value;
     // this.changeStatus.user.UserId=this.username.value;
@@ -45,17 +46,23 @@ export class LoginComponent implements OnInit {
          if(this.message==null){
            console.log("Invalid user")
            this.userwlcm="Invalid user";
+           this.user.logincount=0;
          }
-         //  this.status=!this.message;
-     //     console.log(this.message);
-         // console.log(this.status);
+  
           if(this.message==false){
-       //  this.welcome="Login Succesfull";
+       
+          this.user.logincount=0;
          this.userwlcm="Login Successfull!!"
-       //  console.log(this.welcome);
+// this.router.navigate(['dashboard',this.user.UserId]);
+
+   
+          }
+
+          if(this.message=="Invalid Password"){
+            this.userwlcm="Invalid Password!! Login attempt left "+(3-this.user.logincount);
           }
           if(this.message==true){
-     //  this.nowelcome="Account Lock";
+    
        this.userwlcm="Locked Account"
           }
 
