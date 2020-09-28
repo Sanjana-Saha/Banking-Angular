@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 export class ForgotPasswordComponent implements OnInit {
 forgotpassword:ForgotPassword
 forgotpasswordForm:FormGroup
-  constructor() { 
+  constructor(private router:Router) { 
     this.forgotpasswordForm=new FormGroup({
       userid:new FormControl(null,Validators.required),
       OTP:new FormControl(null,Validators.required),
@@ -30,9 +30,10 @@ forgotpasswordForm:FormGroup
   OnProceed()
   {
     console.log(this.OTP.value);
+    this.router.navigate(['setpassword'])
   }
   OnBack(){
-
+    this.router.navigate(['login']);
   }
   ngOnInit(): void {
     

@@ -7,6 +7,11 @@ import { NgModule } from '@angular/core';
 // import { AppRoutingModule } from './app-routing.module';
 // import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {LoginService} from './services/LoginService';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
+
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // import { LoginComponent } from './login/login.component';
@@ -29,10 +34,13 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 
 import {SearchService} from './services/SearchService';
 import {AdminDecisionService} from './services/AdminDecisionService';
-import { FormsModule } from '@angular/forms';
+import {RegisterComponent} from './register/register.component';
+import { FormGroup , FormControl} from '@angular/forms';
+import { CommonModule }  from '@angular/common';
+import {RegisterSuccessComponent} from './register-success/register-success.component';
 import { SearchComponentComponent } from './search-component/search-component.component';
 import { AdminDecisionComponent } from './admin-decision/admin-decision.component';
-import {ReactiveFormsModule} from '@angular/forms';
+
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -48,6 +56,12 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { CreateAccount } from './models/createAccount';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+//import { ForgotPassword } from '../models/forgot-password';
+import { SetPasswordComponent } from './set-password/set-password.component';
+import { RegisterService } from './services/RegisterService';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { from } from 'rxjs';
+import { TransfailComponent } from './transfail/transfail.component';
 
 import { RegisterService } from './services/RegisterService';
 import { AccountsummaryComponent } from './accountsummary/accountsummary.component';
@@ -67,6 +81,13 @@ var myRoutes:Routes=[
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'created',component:AccountCreatedComponent},
+
+  {path:'create',component:LoginComponent},
+  {path:'open',component:CreateAccountComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'registered',component:RegisterSuccessComponent},
+  {path:'login',component:RegisterSuccessComponent}
+
   {path:'open',component:CreateAccountComponent},
 
   {path:'admindashboard/:id',component:AdminDecisionComponent},
@@ -74,6 +95,7 @@ var myRoutes:Routes=[
   {path:'login',component:LoginComponent}
 
   
+
 
 ];
 
@@ -89,17 +111,32 @@ var myRoutes:Routes=[
     AdminLoginComponent,
     LoginComponent,
     ChangepasswordComponent,
+    SetPasswordComponent,
+    DashboardComponent,
     RegisterComponent,
-    ForgotPasswordComponent,
-    RegisterSuccessComponent,
+     AddBeneficiaryComponent,
+    AccountsummaryComponent,
+    TransfailComponent,
     TransactionIMPSComponent,
+
     AddBeneficiaryComponent,
     AccountsummaryComponent,
     TransactionRTGSComponent,
     TransactionNEFTComponent
 
+	 ForgotPasswordComponent,
+    RegisterSuccessComponent
+
+
+
+  ],
+   
+   
+
+
   ],
   providers: [LoginService,SearchService,AdminDecisionService,CreateAccountService,AdminLoginService,RegisterService,AccountSummaryService
+
 ], 
 
   
@@ -110,11 +147,12 @@ var myRoutes:Routes=[
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
- RouterModule.forRoot(myRoutes)
+    CommonModule,
+    RouterModule.forRoot(myRoutes)
+
   ],
 
 
