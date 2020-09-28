@@ -10,7 +10,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 
 
 
-import {RegisterService} from './services/RegisterService';
+
 import {SearchService} from './services/SearchService';
 import {AdminDecisionService} from './services/AdminDecisionService';
 import { FormsModule } from '@angular/forms';
@@ -25,16 +25,22 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { CreateAccountService } from './services/createAccountService';
 import {AdminLoginService} from './services/AdminLoginService';
 import {AddBeneficiaryService} from './services/AddBeneficiaryService';
-import {TransactionService} from './services/TransactionService';
+
 import { AccountCreatedComponent } from './account-created/account-created.component';
 import {Routes,RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { CreateAccount } from './models/createAccount';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { TransactionIMPSComponent } from './transaction-imps/transaction-imps.component';
 import { AddBeneficiaryComponent } from './add-beneficiary/add-beneficiary.component';
-import { from } from 'rxjs';
+
+
+import { RegisterService } from './services/RegisterService';
+import { TransactionIMPSComponent } from './transaction-imps/transaction-imps.component';
+import {TransactionService} from './services/TransactionService';
+import {TransactionNEFTComponent} from './transaction-neft/transaction-neft.component';
+import {TransactionRTGSComponent} from './transaction-rtgs/transaction-rtgs.component';
+
 
 var myRoutes:Routes=[
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -44,6 +50,7 @@ var myRoutes:Routes=[
   {path:'admindashboard/:id',component:AdminDecisionComponent},
   {path:'adminlogin',component:AdminLoginComponent},
   {path:'login',component:LoginComponent}
+
   
 ];
 
@@ -68,7 +75,8 @@ var myRoutes:Routes=[
   ],
   providers: [LoginService,SearchService,AdminDecisionService,CreateAccountService,
     AdminLoginService,SearchService,RegisterService,TransactionService,AddBeneficiaryService
-], 
+    ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,

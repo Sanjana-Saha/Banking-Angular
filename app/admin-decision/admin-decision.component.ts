@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { SearchModel } from '../models/searchmodel';
 import {AdminDecisionService} from '../services/AdminDecisionService';
 import {UpdateModel} from '../models/updatemodel';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-decision',
@@ -14,7 +15,9 @@ export class AdminDecisionComponent implements OnInit,OnChanges {
   Accounts;
   AccountDetails;
   val:number;
-  constructor(private admindecisionservice:AdminDecisionService) {
+  private sub:any;
+  adminid : string;
+  constructor(private admindecisionservice:AdminDecisionService,private myRouter:Router,private route : ActivatedRoute) {
     this.admindecisionservice.GetAllAccountsFromAPI().subscribe((data)=>{
       this.Accounts=data;
     })
@@ -42,8 +45,10 @@ export class AdminDecisionComponent implements OnInit,OnChanges {
 
      })
      window.location.reload();
-     
-     
+   }
+   ToHome()
+   {
+    this.myRouter.navigate(['home']);
    }
   ngOnChanges(changes: SimpleChanges): void {
     this.admindecisionservice.GetAllAccountsFromAPI().subscribe((data)=>{
@@ -53,6 +58,10 @@ export class AdminDecisionComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
+    this.sub=this.route.params.subscribe(params =>{
+      this.adminid=params['id'];
+      //console.log(this.adminid);
+    })
   }
 
 }

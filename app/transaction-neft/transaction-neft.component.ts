@@ -1,21 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {Transaction} from '../models/transaction';
-
 import { TransactionService } from '../services/TransactionService';
 
+
 @Component({
-  selector: 'app-transaction-imps',
-  templateUrl: './transaction-imps.component.html',
-  styleUrls: ['./transaction-imps.component.css']
+  selector: 'app-transaction-neft',
+  templateUrl: './transaction-neft.component.html',
+  styleUrls: ['./transaction-neft.component.css']
 })
-export class TransactionIMPSComponent implements OnInit {
+export class TransactionNEFTComponent implements OnInit {
 
   transaction:Transaction;
-
-  transForm:FormGroup;
-  constructor() { 
-
   message:string;
   transForm:FormGroup;
   constructor(private transactionService:TransactionService) { 
@@ -51,13 +47,11 @@ export class TransactionIMPSComponent implements OnInit {
       this.transaction.ToAccountNumber=this.toac.value;
       this.transaction.AmountTransferred=this.amount.value;
       this.transaction.TransactionDate=this.transdate.value;
-
-      this.transaction.TransactionType="IMPS";
+      this.transaction.TransactionType="NEFT";
       this.transactionService.TransactionsToAPI(this.transaction).subscribe((data)=>{
         this.message=data.toString();
         console.log(this.message);
       })
-
     }
   }
 }
