@@ -5,21 +5,25 @@
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
             <form class="form-signin" [formGroup]="loginForm">
-              <div class="form-label-group">
-                
-              </div>
+    
               
               <div class="form-label-group">
+                <label>Admin Id</label>
+                <br/>
+                <label for="inputEmail"></label>
                 <input type="text" id="inputEmail" class="form-control" placeholder="Adminname" autofocus formControlName="adminname">
-                <label for="inputEmail">Admin Name</label>
+                
                  <span class="alert alert-danger" *ngIf="adminname.touched && adminname.invalid">
                      <span class="alert alert-danger" *ngIf="adminname.errors.required">Name is required</span>
             </span>
               </div>
 
               <div class="form-label-group">
+                <label>Password</label>
+                <br/>
+                <label for="inputPassword"></label>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required formControlName="password">
-                <label for="inputPassword">Password</label>
+                
                 <span class="alert alert-danger" *ngIf="password.touched && adminname.invalid">
                   <span class="alert alert-danger" *ngIf="password.errors.required">Passowrd is required</span>
             </span>
@@ -30,7 +34,9 @@
               <hr class="my-4">
               
             </form>
+            {{this.welcome | json}}
           </div>
         </div>
+      </div>
       </div>
     </div>
