@@ -14,10 +14,10 @@ export class TransactionIMPSComponent implements OnInit {
   transaction:Transaction;
 
   transForm:FormGroup;
-  constructor() { 
+ 
 
   message:string;
-  transForm:FormGroup;
+
   constructor(private transactionService:TransactionService) { 
     this.transaction=new Transaction();
     this.transForm=new FormGroup({

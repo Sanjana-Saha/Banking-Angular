@@ -69,8 +69,6 @@ var myRoutes:Routes=[
   {path:'created',component:AccountCreatedComponent},
   {path:'open',component:CreateAccountComponent},
 
-  {path:'login',component:LoginComponent}
-
   {path:'admindashboard/:id',component:AdminDecisionComponent},
   {path:'adminlogin',component:AdminLoginComponent},
   {path:'login',component:LoginComponent}
@@ -96,7 +94,9 @@ var myRoutes:Routes=[
     RegisterSuccessComponent,
     TransactionIMPSComponent,
     AddBeneficiaryComponent,
-    AccountsummaryComponent
+    AccountsummaryComponent,
+    TransactionRTGSComponent,
+    TransactionNEFTComponent
 
   ],
   providers: [LoginService,SearchService,AdminDecisionService,CreateAccountService,AdminLoginService,RegisterService,AccountSummaryService
