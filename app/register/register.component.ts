@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup,Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { Register } from '../models/register';
 import { RegisterService } from '../services/RegisterService';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
+import { RouterModule, Routes} from '@angular/router';
+import {Router} from '@angular/router';
+import { from,of } from 'rxjs';
+
 
 @Component({
   selector: 'app-register',
@@ -19,7 +23,8 @@ export class RegisterComponent implements OnInit {
   myRegisterForm:FormGroup;
   submitstatus:boolean;
 
-  constructor(){ 
+  constructor(private router:Router,private registerservice:RegisterService){ 
+    this.register=new Register();
       this.myRegisterForm=new FormGroup({
         accountnumber:new FormControl(null,Validators.required),
         password:new FormControl(null,Validators.required),
@@ -49,11 +54,22 @@ export class RegisterComponent implements OnInit {
       return this.myRegisterForm.get("OTP");
     }
     ngOnInit(): void {
-      console.log(this.myRegisterForm)
+      
     }
 
     submit(){
+       this.register.AccountNumber=this.accountnumber.value;
+      this.register.UserPass=this.password.value;
+       this.register.UserTransactionpass=this.transactionpwd.value;
+       this.register.ConfirmTransPass=this.confirmtpwd.value;
+       this.register.ConfirmUserPass=this.confirmpassword.value;
+      this.register.OTP=this.OTP.value;
+      //console.log(this.myRegisterForm)
       this.submitstatus=true;
-    }
-  
+      this.registerservice.updateUserThroughAPI(this.register).subscribe((data)=>{
+        this.message=data;
+        
+    })
+    this.router.navigate(['registered']);
   }
+}

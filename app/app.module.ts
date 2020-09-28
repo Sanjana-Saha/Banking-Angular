@@ -1,22 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
-import {RegisterComponent} from './register/register.component';
-import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
-import {RegisterSuccessComponent} from './register-success/register-success.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {LoginService} from './services/LoginService';
-import { ChangepasswordComponent } from './changepassword/changepassword.component'
-
-
-
-
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import {SearchService} from './services/SearchService';
 import {AdminDecisionService} from './services/AdminDecisionService';
-import { FormsModule } from '@angular/forms';
+import {RegisterComponent} from './register/register.component';
+import { FormGroup , FormControl} from '@angular/forms';
+import { CommonModule }  from '@angular/common';
+import {RegisterSuccessComponent} from './register-success/register-success.component';
 import { SearchComponentComponent } from './search-component/search-component.component';
 import { AdminDecisionComponent } from './admin-decision/admin-decision.component';
-import {ReactiveFormsModule} from '@angular/forms';
+
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,12 +26,22 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { CreateAccount } from './models/createAccount';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+//import { ForgotPassword } from '../models/forgot-password';
+import { SetPasswordComponent } from './set-password/set-password.component';
+import { RegisterService } from './services/RegisterService';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { from } from 'rxjs';
+import { TransfailComponent } from './transfail/transfail.component';
 
 var myRoutes:Routes=[
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'created',component:AccountCreatedComponent},
-  {path:'open',component:CreateAccountComponent}
+  {path:'create',component:LoginComponent},
+  {path:'open',component:CreateAccountComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'registered',component:RegisterSuccessComponent},
+  {path:'login',component:RegisterSuccessComponent}
 ];
 
 @NgModule({
@@ -50,21 +56,24 @@ var myRoutes:Routes=[
     AdminLoginComponent,
     LoginComponent,
     ChangepasswordComponent,
+    SetPasswordComponent,
+    DashboardComponent,
     RegisterComponent,
-    ForgotPasswordComponent,
-    RegisterSuccessComponent
+    TransfailComponent
+
 
   ],
-  providers: [LoginService,SearchService,AdminDecisionService,CreateAccountService,AdminLoginService
+  providers: [LoginService,SearchService,AdminDecisionService,CreateAccountService,AdminLoginService,RegisterService
 ], 
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
- RouterModule.forRoot(myRoutes)
+    CommonModule,
+    RouterModule.forRoot(myRoutes)
+
   ],
 
 

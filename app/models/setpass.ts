@@ -1,14 +1,11 @@
-export class Register{
+export class SetPass{
     AccountNumber:number;
     UserId:Text;
     AvailableBalance:number;
     UserPass:string;
     ConfirmUserPass:string;
-    UserTransactionpass:string;
-    ConfirmTransPass:string;
+    UserTransactionpass:bigint;
     AccountLock:boolean;
     NewLoginPass:string;
-    NewTransPass:string;
-    OTP:number;
 
 }
