@@ -3,7 +3,7 @@
     <div class="card bg-light text-dark">
         <h1>Login Page</h1>
         <form [formGroup]="myForm">
-            <label>Username</label>
+            <label>User Id</label>
             <input class="form-control" type="text"  formControlName="username">
             <span class="alert alert-danger" *ngIf="username.touched && username.invalid">
                 <span class="alert alert-danger" *ngIf="username.errors.required">Name field is required!</span>

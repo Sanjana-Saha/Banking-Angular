@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 // import {HttpClientModule} from '@angular/common/http';
 
 
@@ -7,12 +8,25 @@ import { NgModule } from '@angular/core';
 // import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// import { LoginComponent } from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
+import {RegisterSuccessComponent} from './register-success/register-success.component';
+
+
 import {LoginService} from './services/LoginService';
+import{AccountSummaryService} from './services/AccountSummaryService';
 import { ChangepasswordComponent } from './changepassword/changepassword.component'
+
 
 
 // import { AppRoutingModule } from './app-routing.module';
 // import { AppComponent } from './app.component';
+
+
+
+
 import {SearchService} from './services/SearchService';
 import {AdminDecisionService} from './services/AdminDecisionService';
 import { FormsModule } from '@angular/forms';
@@ -32,12 +46,15 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { CreateAccount } from './models/createAccount';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { RegisterService } from './services/RegisterService';
+import { AccountsummaryComponent } from './accountsummary/accountsummary.component';
 
 var myRoutes:Routes=[
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'created',component:AccountCreatedComponent},
-  {path:'open',component:CreateAccountComponent}
+  {path:'open',component:CreateAccountComponent},
+  {path:'login',component:LoginComponent}
 ];
 
 @NgModule({
@@ -50,11 +67,15 @@ var myRoutes:Routes=[
     HomeComponent,
     HeaderComponent,
     AdminLoginComponent,
-   LoginComponent,
-    ChangepasswordComponent
+    LoginComponent,
+    ChangepasswordComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    RegisterSuccessComponent,
+    AccountsummaryComponent
 
   ],
-  providers: [LoginService,SearchService,AdminDecisionService,CreateAccountService,AdminLoginService
+  providers: [LoginService,SearchService,AdminDecisionService,CreateAccountService,AdminLoginService,RegisterService,AccountSummaryService
 ], 
   imports: [
     BrowserModule,
