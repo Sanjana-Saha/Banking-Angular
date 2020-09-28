@@ -1,0 +1,54 @@
+<div class="border border-info" style="margin-left:20% ; margin-right: 20%;">
+    <br/>
+    <h3 style="text-align: center;background-color:lightgray;" >Initiate NEFT Payment </h3>
+
+<br/><br/>
+<div class="alert alert-danger">
+    <form [formGroup]="transForm">
+        <div>
+        <label>From Account number<span id="mandatory">*</span></label> 
+        <input type="number" class="form-control" formControlName="fromac">
+        <p class="alert alert-danger" *ngIf="fromac.touched && fromac.invalid">
+            <span class="alert alert-danger" *ngIf="fromac.errors.required">This field is required!</span>
+        </p>
+        </div>
+        <br/>        
+        <div>
+        <label>To Account Number<span id="mandatory">*</span></label> 
+        <input type="number" class="form-control" formControlName="toac">
+        <p class="alert alert-danger" *ngIf="toac.touched && toac.invalid">
+            <span class="alert alert-danger" *ngIf="toac.errors.required">This field is required!</span>
+        </p>
+
+        </div>
+        <br/>
+        <div>
+            <label>Amount<span id="mandatory">*</span></label> 
+            <input type="number" class="form-control" formControlName="amount">
+            <p class="alert alert-danger" *ngIf="amount.touched && amount.invalid">
+                <span class="alert alert-danger" *ngIf="amount.errors.required">This field is required!</span>
+            </p>
+        </div>
+        <br/>
+        <div>
+            <label>Transaction date<span id="mandatory">*</span></label> 
+            <input type="date" class="form-control" formControlName="transdate">
+            <p class="alert alert-danger" *ngIf="transdate.touched && transdate.invalid">
+                <span class="alert alert-danger" *ngIf="transdate.errors.required">This field is required!</span>
+            </p>
+        </div>
+        <br/>
+        <div>
+            <label>Remarks</label>
+            <input type="text" class="form-control">
+        </div>
+        
+        
+        <button (click)="onSubmit()" style="font-size: x-large;" class="btn btn-success">Submit</button> 
+    </form>
+</div>
+
+
+
+
+
