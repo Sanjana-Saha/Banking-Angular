@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdminLogin } from '../models/adminLogin';
 import { AdminLoginService } from '../services/AdminLoginService';
 
@@ -15,7 +16,7 @@ export class AdminLoginComponent implements OnInit {
   message;
   welcome;
 
-  constructor(private adminLoginService:AdminLoginService) { 
+  constructor(private adminLoginService:AdminLoginService,private router:Router) { 
     this.adminLogin=new AdminLogin();
     this.loginForm=new FormGroup({
       adminname:new FormControl(null,Validators.required),
@@ -39,6 +40,17 @@ export class AdminLoginComponent implements OnInit {
     this.adminLogin.AdminPassword=this.password.value;
     this.adminLoginService.checkAdmin(this.adminLogin).subscribe((data)=>{
       this.message=data;
+      if(this.message==false)
+      {
+       // console.log("Invalid");
+        this.welcome="Invalid credentials";
+      }
+      if(this.message==true)
+      {
+        this.welcome="Login successful";
+        this.router.navigate(['admindashboard',this.adminLogin.AdminId]);
+      }
+
     })
   }
 }

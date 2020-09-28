@@ -40,21 +40,43 @@ import { AppComponent } from './app.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { CreateAccountService } from './services/createAccountService';
 import {AdminLoginService} from './services/AdminLoginService';
+import {AddBeneficiaryService} from './services/AddBeneficiaryService';
+
 import { AccountCreatedComponent } from './account-created/account-created.component';
 import {Routes,RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { CreateAccount } from './models/createAccount';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+
 import { RegisterService } from './services/RegisterService';
 import { AccountsummaryComponent } from './accountsummary/accountsummary.component';
+
+import { AddBeneficiaryComponent } from './add-beneficiary/add-beneficiary.component';
+
+
+
+import { TransactionIMPSComponent } from './transaction-imps/transaction-imps.component';
+import {TransactionService} from './services/TransactionService';
+import {TransactionNEFTComponent} from './transaction-neft/transaction-neft.component';
+import {TransactionRTGSComponent} from './transaction-rtgs/transaction-rtgs.component';
+
+
 
 var myRoutes:Routes=[
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'created',component:AccountCreatedComponent},
   {path:'open',component:CreateAccountComponent},
+
   {path:'login',component:LoginComponent}
+
+  {path:'admindashboard/:id',component:AdminDecisionComponent},
+  {path:'adminlogin',component:AdminLoginComponent},
+  {path:'login',component:LoginComponent}
+
+  
+
 ];
 
 @NgModule({
@@ -72,11 +94,19 @@ var myRoutes:Routes=[
     RegisterComponent,
     ForgotPasswordComponent,
     RegisterSuccessComponent,
+    TransactionIMPSComponent,
+    AddBeneficiaryComponent,
     AccountsummaryComponent
 
   ],
   providers: [LoginService,SearchService,AdminDecisionService,CreateAccountService,AdminLoginService,RegisterService,AccountSummaryService
 ], 
+
+  
+
+  
+  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
